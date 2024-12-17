@@ -1,4 +1,4 @@
-# AnomalyCD (code is coming soon!!) ([Full Paper](https://arxiv.org/abs/2412.11800))
+# AnomalyCD (code is coming soon!!) (CERN-CMS-DN-2023-030, [Full paper on arXiv](https://arxiv.org/abs/2412.11800))
 Scalable Temporal Anomaly Causality Discovery in Large Systems: Achieving Computational Efficiency with Binary Anomaly Flag Data
 
 The repo is part of the DEtector System MOnitoring and Diagnostics (DESMOD) project, a collaboration between the CMS Experiment at CERN and the University of Agder, Norway.
