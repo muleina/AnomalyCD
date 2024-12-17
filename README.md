@@ -1,5 +1,5 @@
-# AnomalyCD (Code is coming soon!!)
-([Full Paper](https://www.mdpi.com/1424-8220/23/24/9679)) Scalable Temporal Anomaly Causality Discovery in Large Systems: Achieving Computational Efficiency with Binary Anomaly Flag Data
+# AnomalyCD (Code is coming soon!!) ([Full Paper](https://arxiv.org/abs/2412.11800))
+Scalable Temporal Anomaly Causality Discovery in Large Systems: Achieving Computational Efficiency with Binary Anomaly Flag Data
 
 The repo is part of the DEtector System MOnitoring and Diagnostics (DESMOD) project, a collaboration between the CMS Experiment at CERN and the University of Agder, Norway.
 The DESMOD aims to develop ML tools for the Hadron Calorimeter (HCAL)-Readout Boxes (RBXes). 
@@ -28,13 +28,17 @@ The results demonstrate the considerable reduction of the computation overhead a
 
 
 ## The CMS-HCAL Monitoring Sensor Data set
+
 The CMS HCAL is a specialized calorimeter that captures hadronic particles during a collision event in the CMS experiment. 
 The primary purpose of the HCAL is to measure the energy of hadrons by absorbing their energy and converting it into measurable signals. 
 The calorimeter is composed of brass and plastic scintillators, and the scintillation light produced in the plastic is transmitted through wavelength-shifting fibers to Silicon photomultiplier (SiPMs). 
 The HCAL front-end electronics consist of components responsible for sensing and digitizing optical signals of the collision particles. 
 The front-end electronics are divided into sectors of readout boxes (RBXes) that house and provide voltage, backplane communications, and cooling to the data acquisition electronics.
 
+Results are in the paper and will be added to the git soon!
+
 ## EasyVista Monitoring Public Data set ([Git Source](https://github.com/ckassaad/EasyRCA))
+
 [EasyVista](https://www.easyvista.com/fr/produits/ev-observe) has provided a multivariate sensor dataset from their information technology monitoring system and made the data publicly available. 
 The dataset consists of eight TS variables collected with a one-minute sampling rate.   
 
@@ -55,8 +59,7 @@ Before and After Edge Pruning and Adjustment
 
 ## Appendix  (Causal Discovery on Artificially Simulated Anomaly Data sets)
 
-![](./results/.jpg)
-![](./results/.jpg)
+Results will be added soon!
 
 
 ## BibTeX Citation
@@ -66,7 +69,7 @@ If you employ any part of the code, please kindly cite the following papers:
 @article{asres2024anomalycd,
   title={Scalable Temporal Anomaly Causality Discovery in Large Systems: Achieving Computational Efficiency with Binary Anomaly Flag Data},
   author={Asres, Mulugeta Weldezgina and Omlin, Christian Walter and {The CMS-HCAL Collaboration}},
-  journal={arXiv preprint arXiv:},
+  journal={arXiv preprint arXiv:2412.11800},
   year={2024}
 }
 ```
