@@ -1,13 +1,22 @@
-# AnomalyCD (code is coming soon!!) (CERN-CMS-DN-2023-030, [Full paper on arXiv](https://arxiv.org/abs/2412.11800))
+<div>
+    <a href="https://arxiv.org/abs/2412.11800"><img src="https://img.shields.io/badge/Paper-aXriv-red" alt="AnomalyCD PAPER"></a>
+</div>
+
+<!-- <a href="https://github.com/muleina/AnomalyCD/actions/workflows/python-package.yml"><img src="https://github.com/muleina/LA3D/actions/workflows/python-package.yml/badge.svg" alt="AnomalyCD CI Python"></a>
+<a href="https://github.com/muleina/AnomalyCD/actions/workflows/python-package-conda.yml"><img src="https://github.com/muleina/LA3D/actions/workflows/python-package-conda.yml/badge.svg" alt="AnomalyCD CI Anaconda"></a>
+<a href="https://colab.research.google.com/github/muleina/AnomalyCD/blob/main/notebook/AnomalyCD_GCM_HCAL_dataset.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open AnomalyCD-GCM-HCAL in Colab"></a>
+<a href="https://ai4citizens.uia.no/app_dashboard"><img src="https://img.shields.io/badge/Live-Demo-blue" alt="LA3D DEMO"></a> -->
+<!-- <a href="https://cds.cern.ch/record/2919488"><img src="https://img.shields.io/badge/Paper-CERN-blue" alt="AnomalyCD PAPER"></a> -->
+
+# AnomalyCD (code is coming soon!!)
 Scalable Temporal Anomaly Causality Discovery in Large Systems: Achieving Computational Efficiency with Binary Anomaly Flag Data
 
-The repo is part of the DEtector System MOnitoring and Diagnostics (DESMOD) project, a collaboration between the CMS Experiment at CERN and the University of Agder, Norway.
-The DESMOD aims to develop ML tools for the Hadron Calorimeter (HCAL)-Readout Boxes (RBXes). 
-The modeling includes Anomaly Detection, Anomaly Prediction, and Root-Cause Analysis across large high-dimensional sensor data sets.
+This repo is part of the DEtector System MOnitoring and Diagnostics (DESMOD) project, a collaboration between the CMS Experiment at CERN and the University of Agder, Norway.
+The DESMOD aims to develop ML tools for the Hadron Calorimeter (HCAL)-Readout Boxes (RBXes), and it includes Anomaly Detection, Anomaly Prediction, and Root-Cause Analysis across large high-dimensional sensor data.
 
-<img src="./docs/images/schematic_view_of_the_CMS.jpg" width="500"/>
+<!-- <img src="./docs/images/schematic_view_of_the_CMS.jpg" width="500"/> -->
 
-<img src="./docs/images/phd_desmod_method_diagram_2.png" width="800"/>
+<img src="./docs/images/phd_desmod_method_diagram_2.png" width="800"/> 
 
 ## Abstract 
 Extracting anomaly causality facilitates diagnostics once monitoring systems detect system faults. 
@@ -15,8 +24,8 @@ Identifying anomaly causes in large systems involves investigating a more extens
 However, learning causal graphs comes with a significant computational burden that restrains the applicability of most existing methods in real-time and large-scale deployments.
 In addition, modern monitoring applications for large systems often generate large amounts of binary alarm flags, and the distinct characteristics of binary anomaly data---the meaning of state transition and data sparsity---challenge existing causality learning mechanisms.
 This study proposes an anomaly causal discovery approach (AnomalyCD), addressing the accuracy and computational challenges of generating causal graphs from binary flag data sets. The AnomalyCD framework presents several strategies, such as anomaly flag characteristics incorporating causality testing, sparse data and link compression, and edge pruning adjustment approaches. 
-We validate the performance of this framework on two datasets: monitoring sensor data of the readout-box system of the Compact Muon Solenoid experiment at CERN, and a public data set for information technology monitoring.
-The results demonstrate the considerable reduction of the computation overhead and moderate enhancement of the accuracy of temporal causal discovery on binary anomaly data sets.
+We validate the performance of this framework on two datasets: monitoring sensor data of the readout-box system of the Compact Muon Solenoid experiment at CERN, and a publicly available dataset for information technology monitoring.
+The results demonstrate a considerable reduction in computation and moderate enhancement of the accuracy of temporal causal discovery on binary anomaly datasets.
 
 ## AnomalyCD System Design
 
@@ -35,7 +44,7 @@ The calorimeter is composed of brass and plastic scintillators, and the scintill
 The HCAL front-end electronics consist of components responsible for sensing and digitizing optical signals of the collision particles. 
 The front-end electronics are divided into sectors of readout boxes (RBXes) that house and provide voltage, backplane communications, and cooling to the data acquisition electronics.
 
-Results are in the paper and will be added to the git soon!
+The results are in the paper and will be added to the GitHub soon!
 
 ## EasyVista Monitoring Public Data set ([Git Source](https://github.com/ckassaad/EasyRCA))
 
@@ -57,7 +66,7 @@ Before and After Edge Pruning and Adjustment
 <img src="./results/rca__easyrca_rca_ts_idx_positive_0.05_white_5_prune_tlag_first.jpg" width="440"/> <img src="./results/rca__easyrca_rca_ts_idx_positive_0.05_white_5_prune_tlag_first_directed.jpg" width="440"/>
 
 
-## Appendix  (Causal Discovery on Simulated Binary Anomaly Time Series Data sets)
+## Appendix  (Causal Discovery on Simulated Binary Anomaly Time Series Datasets)
 
 We simulate different realistic challenges of CD on TS binary anomaly data for the empirical assessment compared with a ground truth graph causal model (GCM) from three nodes: $X_1$, $X_2$, $X_3$.
 We will present the results below using Latent PCMCI, PCMCI augmented with FCI for unseen confounding handling, as it achieves better accuracy for small data sets than its predecessors. But, it may become significantly slower than the predecessors for larger data sets.
@@ -87,9 +96,9 @@ Heat maps of the estimated temporal graph edge weights at $p_v$=0.05 using (Left
 
 ### Challenge-2: Incomplete Stationary Binary Data
 
-System interruption often follows for maintenance or prevention of further damage after anomaly alerts. 
-We generated temporally incomplete anomaly data when the anomaly signals from all the variables reset to zero when a system interruption occurs;
-we utilized the binary data from the previous section--i.e., $(X_1 - 1) \rightarrow X_2$ and $(X_2 - 3) \rightarrow X_3$--and applied an interruption condition $X_1=0 \cap X_2=0 \cap X_3=1$.
+System interruption often follows anomaly detection for fault maintenance or further damage prevention. 
+We generated temporally incomplete anomaly data when the anomaly signals from all the variables reset to zero when a system interruption occurs.
+We utilized the binary data from the previous section--i.e., $(X_1 - 1) \rightarrow X_2$ and $(X_2 - 3) \rightarrow X_3$--and applied an interruption condition $X_1=0 \cap X_2=0 \cap X_3=1$.
 
 Time series binary anomaly flag (Left) without interruption and (Right) with interruption at $X_3$.
 <img src="./results/rca__dummy_causal_data_anomaly_duration_5_lag_3_anomaly_uninterrupted.jpg" width="440"/> <img src="./results/rca__dummy_causal_data_anomaly_duration_5_lag_3_anomaly_interrupted.jpg" width="440"/>
