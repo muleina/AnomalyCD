@@ -1,6 +1,4 @@
-<div>
-    <a href="https://arxiv.org/abs/2412.11800"><img src="https://img.shields.io/badge/Paper-aXriv-red" alt="AnomalyCD PAPER"></a>
-</div>
+
 
 <!-- <a href="https://github.com/muleina/AnomalyCD/actions/workflows/python-package.yml"><img src="https://github.com/muleina/LA3D/actions/workflows/python-package.yml/badge.svg" alt="AnomalyCD CI Python"></a>
 <a href="https://github.com/muleina/AnomalyCD/actions/workflows/python-package-conda.yml"><img src="https://github.com/muleina/LA3D/actions/workflows/python-package-conda.yml/badge.svg" alt="AnomalyCD CI Anaconda"></a>
@@ -8,7 +6,7 @@
 <a href="https://ai4citizens.uia.no/app_dashboard"><img src="https://img.shields.io/badge/Live-Demo-blue" alt="LA3D DEMO"></a> -->
 <!-- <a href="https://cds.cern.ch/record/2919488"><img src="https://img.shields.io/badge/Paper-CERN-blue" alt="AnomalyCD PAPER"></a> -->
 
-# AnomalyCD (code is coming soon!!)
+# AnomalyCD <a href="https://arxiv.org/abs/2412.11800"><img src="https://img.shields.io/badge/Paper-aXriv-red" alt="AnomalyCD PAPER"></a> (code is coming soon!!)
 Scalable Temporal Anomaly Causality Discovery in Large Systems: Achieving Computational Efficiency with Binary Anomaly Flag Data
 
 This repo is part of the DEtector System MOnitoring and Diagnostics (DESMOD) project, a collaboration between the CMS Experiment at CERN and the University of Agder, Norway.
