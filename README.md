@@ -14,7 +14,7 @@ The AnomalyCD integrated pipeline for computationally efficient tools for graphi
 This repo is part of the [DEtector System MOnitoring and Diagnostics (DESMOD)](https://cmshcalweb01.cern.ch/desmod) project, a collaboration between the [CMS Experiment at CERN](https://home.cern) and the [University of Agder](https://www.uia.no), Norway.
 The DESMOD aims to develop ML tools for the Hadron Calorimeter (HCAL)-Readout Boxes (RBXes), and it includes Anomaly Detection, Anomaly Prediction, and Root-Cause Analysis across large high-dimensional sensor data.
 
-<img src="./docs/images/phd_desmod_method_diagram_2.png" width="800"/> 
+<img src="./docs/images/phd_desmod_method_diagram_2.png" width="100%"/> 
 
 ## Abstract 
 Extracting anomaly causality facilitates diagnostics once monitoring systems detect system faults. 
