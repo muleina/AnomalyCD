@@ -1,0 +1,5 @@
+*/lib
+*.ipynb_checkpoints
+*/__pycache__
+*.html
+*.json
