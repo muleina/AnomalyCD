@@ -28,7 +28,7 @@ The temporal causal discovery results demonstrate a considerable reduction of co
 
 ## AnomalyCD System Design
 
-<img src="./results/rca__online_rca-rca_online_main_2.jpg" width="800"/>
+<img src="./results/rca__online_rca-rca_online_main_2.jpg" width="100%"/>
 
 <!-- <img src="./results/rca__online_rca-online_ad_2.jpg" width="600"/> -->
 
@@ -92,7 +92,7 @@ AnomalyCD: graphical causal modeling
 
 AnomalyCD: Performance evaluation
 
-<img src="./results/CMS_HCAL/causal_data/hcal_ablation_perf.png" width="800"/>
+<img src="./results/CMS_HCAL/causal_data/hcal_ablation_perf.png" width="100%"/>
 
 The more results are in the paper!
 
@@ -101,17 +101,15 @@ The more results are in the paper!
 [EasyVista](https://www.easyvista.com/fr/produits/ev-observe) is a publicly available sensor data from their IT monitoring system and can be downlaoded from [here](https://github.com/ckassaad/EasyRCA).
 The dataset consists of 8 time series variables collected .   
 
-<img src="./results/rca__easyrca_ground_truth.jpg" width="440"/> <img src="./results/rca__easyrca_rca_ts_idx_positive_0.05_white_5_prune_tlag_first_directed.jpg" width="350"/>
-
 ### AnomalyCD
 
 The sparse data compression reduces the data from 4.3K to 1.9K samples (55% reduction). 
 
 Performance evaluation
 
-<img src="./results/EasyVista/causal_data/EasyVista_ablation_study.png" width="800"/>
+<img src="./results/EasyVista/causal_data/EasyVista_ablation_study.png" width="100%"/>
 
-<img src="./results/EasyVista/causal_data/EasyVista_compare_with_benchmarks.png" width="600"/>
+<img src="./results/EasyVista/causal_data/EasyVista_compare_with_benchmarks.png" width="100%"/>
 
 ## Computational Cost Analysis
 
