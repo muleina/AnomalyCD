@@ -3,6 +3,7 @@
 <a href="https://arxiv.org/abs/2412.11800"><img src="https://img.shields.io/badge/Preprint-aXriv-red" alt="AnomalyCD PAPER"></a>
 <a href="https://github.com/muleina/AnomalyCD/blob/main/notebooks/AnomalyCD_on_CMS_HCAL_Data_Outlier_Detection.ipynb"><img src="https://img.shields.io/badge/OnlineAD-Notebook-blue" alt="AnomalyCD Online-AD HCAL Dataset"></a>
 <a href="https://github.com/muleina/AnomalyCD/blob/main/notebooks/AnomalyCD_on_CMS_HCAL_Data_Causal_Discovery_TS.ipynb"><img src="https://img.shields.io/badge/AnomalyCD-Notebook-blue" alt="AnomalyCD GCM HCAL Dataset"></a>
+<a href="https://cmshcalweb01.cern.ch/desmod/"><img src="https://img.shields.io/badge/Production-DESMOD-green" alt="AnomalyCD Production"></a>
 
 # AnomalyCD
 Official implementation of the journal paper on "AnomalyCD: *Scalable Temporal Anomaly Causality Discovery in Large Systems: Achieving Computational Efficiency with Binary Anomaly Flag Data*".
@@ -10,7 +11,7 @@ Official implementation of the journal paper on "AnomalyCD: *Scalable Temporal A
 The AnomalyCD integrated pipeline for computationally efficient tools for graphical causal discovery (CD) from large binary anomaly data sets.
  Compared to PCMCI: AnomalyCD achieves 8 to 10X speed boost, 14%-57% spurious graph link reduction, gain F1, FPR, and SHDU by 20.5%, 47%, and 41%, respectively, demonstrating improved GCM accuracy. 
 
-This repo is part of the DEtector System MOnitoring and Diagnostics (DESMOD) project, a collaboration between the CMS Experiment at CERN and the University of Agder, Norway.
+This repo is part of the [DEtector System MOnitoring and Diagnostics (DESMOD)](https://cmshcalweb01.cern.ch/desmod) project, a collaboration between the [CMS Experiment at CERN](https://home.cern) and the [University of Agder](https://www.uia.no), Norway.
 The DESMOD aims to develop ML tools for the Hadron Calorimeter (HCAL)-Readout Boxes (RBXes), and it includes Anomaly Detection, Anomaly Prediction, and Root-Cause Analysis across large high-dimensional sensor data.
 
 <img src="./docs/images/phd_desmod_method_diagram_2.png" width="800"/> 
@@ -97,7 +98,7 @@ The more results are in the paper!
 
 ## EasyVista Monitoring Public Dataset
 
-[EasyVista](https://www.easyvista.com/fr/produits/ev-observe) has provided a sensor data from their IT monitoring system and made the data publicly available in [Git Source](https://github.com/ckassaad/EasyRCA).
+[EasyVista](https://www.easyvista.com/fr/produits/ev-observe) is a publicly available sensor data from their IT monitoring system and can be downlaoded from [here](https://github.com/ckassaad/EasyRCA).
 The dataset consists of 8 time series variables collected .   
 
 <img src="./results/rca__easyrca_ground_truth.jpg" width="440"/> <img src="./results/rca__easyrca_rca_ts_idx_positive_0.05_white_5_prune_tlag_first_directed.jpg" width="350"/>
