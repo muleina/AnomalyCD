@@ -35,6 +35,7 @@ The temporal causal discovery results demonstrate a considerable reduction of co
 <!-- START doctoc -->
 **Table of Contents**
 - [Installation](https://github.com/muleina/AnomalyCD#installation)
+- [Datasets](https://github.com/muleina/AnomalyCD#Datasets)
 - [Usage-Notebook](https://github.com/muleina/AnomalyCD#usage-notebook)
 - [Results: CMS-HCAL Monitoring Sensor Dataset](https://github.com/muleina/AnomalyCD#The-CMS-HCAL-Monitoring-Sensor-Dataset)
 - [Results: EasyVista Monitoring Public Dataset](https://github.com/muleina/AnomalyCD#EasyVista-Monitoring-Public-Dataset)
@@ -56,6 +57,24 @@ The temporal causal discovery results demonstrate a considerable reduction of co
     # Pip install to existing environment.
     pip install -r pip_requirements.txt
 
+## Datasets
+
+## The CMS-HCAL Monitoring Sensor Dataset
+
+The CMS HCAL is a specialized calorimeter that captures hadronic particles during a collision event in the CMS experiment. 
+The sensor dataset (2022) contains 4.8M samples from 12 sensors per readout box (RBX), sourced from 36 RBXes of the HCAL front-end electronics that consist of components responsible for sensing and digitizing optical signals of the collision particles. 
+
+We have released the dataset in this repo [here](https://github.com/muleina/AnomalyCD/blob/main/data/CMS_HCAL/HEP07_RM_1_2_3_4_raw_ts_data.csv). 
+
+<img src="./results/CMS_HCAL/causal_data/CMS_HCAL_HEP07_od_ts_signal.jpg" width="600"/>
+
+## EasyVista Monitoring Public Dataset
+
+[EasyVista](https://www.easyvista.com/fr/produits/ev-observe) is a publicly available sensor data from their IT monitoring system. 
+The dataset consists of 8 time series variables collected.   
+
+The dataset can be downlaoded from [EasyRCA](https://github.com/ckassaad/EasyRCA) or [this repo](https://github.com/muleina/AnomalyCD/blob/main/data/EasyVista/data_with_incident_between_46683_and_46783.csv).
+
 ## Usage-Notebook
 
 We provide below notebooks for a step-wise result generation of the AnomalyCD pipeline using different data sources. 
@@ -66,11 +85,6 @@ We provide below notebooks for a step-wise result generation of the AnomalyCD pi
 -  [EasyVista Temporal Anomaly-CD Notebook](https://github.com/muleina/AnomalyCD/blob/main/notebooks/AnomalyCD_on_EasyVista_Data_Causal_Discovery_TS.ipynb) <a href="https://colab.research.google.com/github/muleina/AnomalyCD/blob/main/notebooks/AnomalyCD_on_EasyVista_Data_Causal_Discovery_TS.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open AnomalyCD EasyVista Dataset In Colab"></a>
 
 ## The CMS-HCAL Monitoring Sensor Dataset
-
-The CMS HCAL is a specialized calorimeter that captures hadronic particles during a collision event in the CMS experiment. 
-The sensor dataset (2022) contains 4.8M samples from 12 sensors per readout box (RBX), sourced from 36 RBXes of the HCAL front-end electronics that consist of components responsible for sensing and digitizing optical signals of the collision particles. 
-
-<img src="./results/CMS_HCAL/causal_data/CMS_HCAL_HEP07_od_ts_signal.jpg" width="600"/>
 
 ### Online-AD
 
