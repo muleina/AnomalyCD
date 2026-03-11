@@ -37,8 +37,8 @@ import matplotlib as mpl
 import matplotlib.collections as mcoll
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-import matplotlib.ticker as ticke
-import seaborn as snsr
+import matplotlib.ticker as ticker
+import seaborn as sns
 from pyvis.network import Network
 from bokeh.palettes import Category10_10
 from tqdm import tqdm
@@ -98,7 +98,6 @@ class ProcTimer():
         print("process time: {} seconds.".format(
             self.get_proctime(time_format=time_format)))
 
-
 def sort_columns(df, isreverse=False):
     return df.reindex(sorted(df.columns, reverse=isreverse), axis=1)
 
@@ -129,6 +128,15 @@ def removesuffix(s, suffix):
         return s[:-len(suffix)]
     else:
         return s[:]
+
+def add_prefix_sortednumeric(df, prec=2, start_prefix=1):
+    df.columns = ["{:"f'0{prec}d'"}_{}".format(i+start_prefix, col) for i, col in enumerate(df.columns)]
+    return df
+
+def remove_prefix_sortednumeric(df, prec=2, start_prefix=1):
+    df.columns = df.columns.str.replace(r'[0-9]'*prec + '_', '', regex=True)
+    df.columns = df.columns.str.replace(r'_*'+'[0-9]'*prec + '_', '_', regex=True)
+    return df
 
 def ts_data_reconstructor(df, timestep=None, t_idx="column", **kwargs):
     print("ts_data_reconstructor...")
@@ -437,7 +445,6 @@ def plot_grid(input_data_list, label="error", **kwargs):
                                 ~join_df[var_sel], np.nan), color=color_join, s=marker_size, label=legends[1] if legend_idxs is None else (legends[1] if var_idx in legend_idxs else None))
           
                         if islegend_active is not None: plt.legend(fontsize=legendfontsize)
-
 
                     if use_timestamp:
                         if input_data.index.dtype == "<M8[ns]":
@@ -786,7 +793,7 @@ def get_local_outliers(ts_df, method="stat_sigma", **kwargs):
     stat_df = None
     df = pd.DataFrame(index=ts_df.index)
 
-    elif method == "stat_sigma":
+    if method == "stat_sigma":
         stat_df = ts_df[ts_df > 0].describe().T
         print(stat_df)
         stat_df["median"] = stat_df["50%"]

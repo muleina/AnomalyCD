@@ -200,11 +200,16 @@ class OnlineTSAD():
         return df_aml
     
     @staticmethod
-    def plot_ts_data_multi_system(df_raw_ts_data, system_col=None, ncol=3, figsize=(6,3.5), hspace=0.8, wspace=0.25, **kwargs):
+    def plot_ts_data_multi_system(df_raw_ts_data, system_col=None, **kwargs):
+        ncol = kwargs.get("ncol", 3)
+        figsize = kwargs.get("figsize", (6, 3.5))
+        hspace = kwargs.get("hspace", 0.8)
+        wspace = kwargs.get("wspace", 0.25)
+        font_scale = kwargs.get("font_scale", 2.8)
         legendfontsize = kwargs.get("legendfontsize", 16)
-        bbox_to_anchor =  kwargs.get("bbox_to_anchor", (0.1, 0.95))
+        bbox_to_anchor = kwargs.get("bbox_to_anchor", (0.1, 0.95))
         sns.set()
-        sns.set_context("notebook", font_scale=2.8, rc={"lines.linewidth": 1.})
+        sns.set_context("notebook", font_scale=font_scale, rc={"lines.linewidth": 1.})
 
         plot_df = df_raw_ts_data.reset_index(drop=False).copy()
         if system_col is None:
@@ -237,12 +242,17 @@ class OnlineTSAD():
                 _ = ax_sub.set_ylabel("value")
             else:
                 _ = ax_sub.set_ylabel(None)
-            locator = util.ticker.MaxNLocator(4)
-            ax_sub.yaxis.set_major_locator(locator)
-            locator = util.mdates.AutoDateLocator(minticks=3, maxticks=8)
-            formatter = util.mdates.ConciseDateFormatter(locator)
-            ax_sub.xaxis.set_major_locator(locator)
-            ax_sub.xaxis.set_major_formatter(formatter)
+            if i < ncol*(nrow - 1):
+                ax_sub.set_xlabel(None)
+                ax_sub.tick_params(axis='x', colors='white', labelsize=4)
+            else:
+                locator = util.mdates.AutoDateLocator(minticks=3, maxticks=8)
+                formatter = util.mdates.ConciseDateFormatter(locator)
+                ax_sub.xaxis.set_major_locator(locator)
+                ax_sub.xaxis.set_major_formatter(formatter)
+                       
+            ax_sub.yaxis.set_major_locator(util.ticker.MaxNLocator(4))
+            
 
         axs[0].get_legend().remove()
         leg = plt.figlegend(loc='upper left',
@@ -256,10 +266,11 @@ class OnlineTSAD():
         return fig
 
     @staticmethod
-    def plot_od_results_ts_with_markers(df_raw_ts_data, df_od_flag_ts_data, system_col=None, sel_system=None, sel_sensor=None, data_gap_dates=None, od_kwargs={}):
+    def plot_od_results_ts_with_markers(df_raw_ts_data, df_od_flag_ts_data, system_col=None, sel_system=None, sel_sensor=None, data_gap_dates=None, od_kwargs={}, **kwargs):
         print("plotting... may take few minutes depending on data size. Disable use_timestamp=False for further processing with index based x-axis.")
+        font_scale = kwargs.get("font_scale", 1.9)
         sns.set()
-        sns.set_context("notebook", font_scale=1.9, rc={"lines.linewidth": 1.})
+        sns.set_context("notebook", font_scale=font_scale, rc={"lines.linewidth": 1.})
         
         plot_dfs = []
         marker_dfs = []
@@ -310,12 +321,12 @@ class OnlineTSAD():
         # renaming variables
         col_list = [util.removesuffix(col, "_SCORE") for col in plot_dfs.columns]
         col_list = [col.replace("DRIFT_TSD__", "") for col in col_list]
-        col_list = [col.replace("_OL", "_OD") for col in col_list]
+        col_list = [col.replace("_OL", "_AD") for col in col_list]
         for i, col in enumerate(col_list):
             if "SR__" in col: 
-                col_list[i] = col.replace("SR__", "").replace("_OD", "_SR_OD")
-            elif ("_OD" in col) and ("_DRIFT_OD" not in col) and ("_SR_OD" not in col): 
-                col_list[i] = col.replace("_OD" , "_STD_OD")
+                col_list[i] = col.replace("SR__", "").replace("_AD", "_SR_AD")
+            elif ("_AD" in col) and ("_DRIFT_AD" not in col) and ("_SR_AD" not in col): 
+                col_list[i] = col.replace("_AD" , "_STD_AD")
 
         plot_dfs.columns = col_list
         marker_dfs.columns = col_list
@@ -328,18 +339,21 @@ class OnlineTSAD():
                 ops_mask.loc[ops_t_range[0]:ops_t_range[1]] = True
 
         fig, ax = util.plot_grid(
-                                plot_dfs.ffill() if ops_mask is None  else plot_dfs.ffill().mask(~ops_mask) ,
+                                plot_dfs.ffill() if ops_mask is None  else plot_dfs.ffill().mask(~ops_mask),
                                 join_df=marker_dfs, join_format="scatter",
-                                figsize=(6.5, 3.0), ncol=len(non_lbl_cols), color="blue",
-                                x_gridno=8,
-                                y_gridno=4,
-                                wspace=0.22,
-                                hspace=0.3,
-                                fontsize=24,
-                                legendfontsize=18,
-                                labelfontsize=24,
-                                tickfontsize=24,
-                                ylabel="value",
+                                figsize=kwargs.get("figsize", (6, 3.0)), 
+                                ncol=len(non_lbl_cols), 
+                                color=kwargs.get("color", "blue"),
+                                x_gridno=kwargs.get("x_gridno", 8),
+                                y_gridno=kwargs.get("y_gridno", 4),
+                                force_y_gridno=kwargs.get("force_y_gridno", False),
+                                wspace=kwargs.get("wspace", 0.22),
+                                hspace=kwargs.get("hspace", 0.3),
+                                fontsize=kwargs.get("fontsize", 24),
+                                legendfontsize=kwargs.get("legendfontsize", 18),
+                                labelfontsize=kwargs.get("labelfontsize", 24),
+                                tickfontsize=kwargs.get("tickfontsize", 24),
+                                ylabel=kwargs.get("ylabel", "value"),
                                 ncol_force=True, iscolor_per_col=True, use_timestamp=True, isshow=False,
                                 legends=["SIGNAL", "FLAG"]
                                 )
@@ -350,7 +364,7 @@ class OnlineTSAD():
                 o_idx = o_idx + 1
 
         for ax_sub in ax:
-            locator = util.ticker.MaxNLocator(5)
+            locator = util.ticker.MaxNLocator(kwargs.get("y_gridno", 5))
             ax_sub.yaxis.set_major_locator(locator)
             ax_sub.tick_params(axis='y', which='major', pad=1)
         return fig
