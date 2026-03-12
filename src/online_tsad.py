@@ -341,21 +341,21 @@ class OnlineTSAD():
         fig, ax = util.plot_grid(
                                 plot_dfs.ffill() if ops_mask is None  else plot_dfs.ffill().mask(~ops_mask),
                                 join_df=marker_dfs, join_format="scatter",
-                                figsize=kwargs.get("figsize", (6, 3.0)), 
+                                figsize=kwargs.pop("figsize", (6, 3.0)), 
                                 ncol=len(non_lbl_cols), 
-                                color=kwargs.get("color", "blue"),
-                                x_gridno=kwargs.get("x_gridno", 8),
-                                y_gridno=kwargs.get("y_gridno", 4),
-                                force_y_gridno=kwargs.get("force_y_gridno", False),
-                                wspace=kwargs.get("wspace", 0.22),
-                                hspace=kwargs.get("hspace", 0.3),
-                                fontsize=kwargs.get("fontsize", 24),
-                                legendfontsize=kwargs.get("legendfontsize", 18),
-                                labelfontsize=kwargs.get("labelfontsize", 24),
-                                tickfontsize=kwargs.get("tickfontsize", 24),
-                                ylabel=kwargs.get("ylabel", "value"),
+                                color=kwargs.pop("color", "blue"),
+                                x_gridno=kwargs.pop("x_gridno", 8),
+                                y_gridno=kwargs.pop("y_gridno", 4),
+                                force_y_gridno=kwargs.pop("force_y_gridno", False),
+                                wspace=kwargs.pop("wspace", 0.22),
+                                hspace=kwargs.pop("hspace", 0.3),
+                                fontsize=kwargs.pop("fontsize", 24),
+                                legendfontsize=kwargs.pop("legendfontsize", 18),
+                                labelfontsize=kwargs.pop("labelfontsize", 24),
+                                tickfontsize=kwargs.pop("tickfontsize", 24),
+                                ylabel=kwargs.pop("ylabel", "value"),
                                 ncol_force=True, iscolor_per_col=True, use_timestamp=True, isshow=False,
-                                legends=["SIGNAL", "FLAG"]
+                                legends=["SIGNAL", "FLAG"], **kwargs
                                 )
         o_idx = 2 if len([col for col in plot_dfs.columns if "TREND" in col]) else 1
         for od_thr_name in ["sd_th", "drift_thr", "sr_th"]:
