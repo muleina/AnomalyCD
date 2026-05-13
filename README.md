@@ -6,7 +6,7 @@
 <a href="https://cmshcalweb01.cern.ch/desmod/"><img src="https://img.shields.io/badge/Production-DESMOD-green" alt="AnomalyCD Production"></a>
 
 # AnomalyCD
-Official implementation of the paper on "AnomalyCD: *Scalable Temporal Anomaly Causality Discovery in Large Systems: Achieving Computational Efficiency with Binary Anomaly Flag Data*", accepted in European Physical Journal C.
+Official implementation of Mulugeta W. Asres et al. AnomalyCD: *Scalable Temporal Anomaly Causality Discovery in Large Systems: Achieving Computational Efficiency with Binary Anomaly Flag Data*", accepted in European Physical Journal C.
 
 - AnomalyCD delivers integrated computation efficient tools for graphical causal discovery (CD) from large time series (TS) datasets with binary anomaly flag data.
 - Compared to to the SOTA TS CD PCMCI: AnomalyCD achieves 55--99.8% data compression, 8--10X speed boost, 14%-57% spurious graph link reduction, gain F1, FPR, and SHDU by 20.5%, 47%, and 41%, respectively, demonstrating improved GCM accuracy. 
